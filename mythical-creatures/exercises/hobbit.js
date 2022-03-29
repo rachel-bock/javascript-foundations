@@ -9,11 +9,11 @@ class Hobbit {
     
     celebrateBirthday(){
         this.age = this.age + 1;
-        if(this.age === 33){
-            this.adult = true;
-        }
-        if(this.age === 101){
+        if(this.age >= 101){
             this.old = true;
+        }
+        if(this.age >= 33){
+            this.adult = true;
         }
     }
 
