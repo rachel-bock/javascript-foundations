@@ -11,6 +11,7 @@ class Vampire {
             this.ouncesDrank = this.ouncesDrank + 10;
             this.thirsty = false;
         } 
+        this.ouncesDrank = 0;
         return `I'm too full to drink anymore!`
     }
 }
