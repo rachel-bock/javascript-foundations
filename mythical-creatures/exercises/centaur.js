@@ -22,29 +22,23 @@ class Centaur {
     }
 
     run() {
-        if (this.layingDown === false) {
-            if(this.cranky === false) {
-                if (this.activity < 3) {
-                    this.activity += 1;
-                    if (this.activity === 3){
-                        this.cranky = true;
-                    }
-                    return 'Clop clop clop clop!!!'
-                } 
-            } 
+        if (this.layingDown === false && this.cranky === false && this.activity < 3) {          
+            this.activity += 1;
+            if (this.activity === 3){
+                this.cranky = true;
+            }
+            return 'Clop clop clop clop!!!'
         }
         return `NO!`
     }
 
     shootBow() {
-        if (this.layingDown === false) {
-            if (this.activity < 3) {
-                this.activity += 1;
-                if (this.activity === 3){
-                    this.cranky = true;
-                }
-                return 'Twang!!!';
+        if (this.standing && this.activity < 3) {
+            this.activity += 1;
+            if (this.activity === 3){
+                this.cranky = true;
             }
+            return 'Twang!!!';
         }
         return 'NO!'
     }
