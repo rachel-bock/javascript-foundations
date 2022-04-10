@@ -34,8 +34,9 @@ class Fairy {
             if (this.humanWards.length > 2) {
                 this.disposition = 'Good natured';
             }
+        } else {
+            return infantDetails;
         }
-        
     }
 }
 
