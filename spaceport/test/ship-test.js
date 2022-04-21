@@ -304,13 +304,13 @@ describe('Ship', function() {
       }
     );
     var hyperdrive = new Part({ name: 'SuperH', type: 'hyperdrive', value: 2000 });
-
+    
     fighter.updatePart(hyperdrive);
 
     assert.deepEqual(fighter.parts.hyperdrive, hyperdrive);
   });
 
-  it.skip('should be able to replace an existing part and return the difference in value', function() {
+  it('should be able to replace an existing part and return the difference in value', function() {
     var parts = {
       shell: new Part({ name: 'XC-Wing', type: 'shell', value: 8000 }),
       computer: new Part({ name: 'Starmapper', type: 'computer', value: 300 }),
@@ -332,7 +332,7 @@ describe('Ship', function() {
     assert.equal(difference, -1000);
   });
 
-  it.skip('should be able replace another existing part and return the difference in value', function() {
+  it('should be able replace another existing part and return the difference in value', function() {
     var parts = {
       shell: new Part({ name: 'XC-Wing', type: 'shell', value: 8000 }),
       computer: new Part({ name: 'Starmapper', type: 'computer', value: 300 }),
@@ -354,7 +354,7 @@ describe('Ship', function() {
     assert.equal(difference, 2500);
   });
 
-  it.skip('should not be able to fly without a captain', function() {
+  it('should not be able to fly without a captain', function() {
     var fighter = new Ship(
       {
         name: 'Atlantis',
@@ -370,7 +370,7 @@ describe('Ship', function() {
     assert.equal(status, 'Cannot fly without a captain');
   });
 
-  it.skip('should not be able to fly without fuel', function() {
+  it('should not be able to fly without fuel', function() {
     var captain = new Being('Will', 'human');
     var fighter = new Ship(
       {
@@ -388,7 +388,7 @@ describe('Ship', function() {
     assert.equal(status, 'Cannot fly without fuel');
   });
 
-  it.skip('should not be able to fly without parts', function() {
+  it('should not be able to fly without parts', function() {
     var captain = new Being('Will', 'human');
     var fighter = new Ship(
       {
@@ -406,7 +406,7 @@ describe('Ship', function() {
     assert.equal(status, 'Cannot fly without parts');
   });
 
-  it.skip('should be able to fly if it has fuel, a captain and parts', function() {
+  it('should be able to fly if it has fuel, a captain and parts', function() {
     var captain = new Being('Will', 'human');
     var parts = {
       shell: new Part({ name: 'S-1', type: 'shell', value: 200 }),

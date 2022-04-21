@@ -12,6 +12,7 @@ class Ship {
     this.name = shipDetails.name;
     this.odometer = shipDetails.odometer || 0;
     this.parts =  shipDetails.parts || {};
+    this.readyToFly = false;
     this.type = shipDetails.type;
   }
 
@@ -23,6 +24,20 @@ class Ship {
     }
   }
 
+  checkReadiness() {
+    if (!this.captain) {
+      return `Cannot fly without a captain`;
+    } 
+    if (!this.fuel) {
+      return `Cannot fly without fuel`;
+    }
+    if (Object.keys(this.parts).length < 1) {
+      return `Cannot fly without parts`;
+    }
+    this.readyToFly = true;
+    return `Good to go!`
+  }
+
   loadCargo(payload) {
     if (payload instanceof Part) {
       this.cargo.push(payload);
@@ -30,7 +45,13 @@ class Ship {
   }
 
   updatePart(thePart) {
-    
+    if (!this.parts[thePart.type]) {
+      this.parts[thePart.type] = thePart;
+    }
+    var part1 = this.parts[thePart.type].value;
+    var part2 = thePart.value;
+    this.parts[thePart.type] = thePart;
+    return part1 - part2;
   }
 }
 
